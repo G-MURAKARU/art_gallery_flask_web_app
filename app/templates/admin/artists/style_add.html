@@ -1,0 +1,27 @@
+<!-- app/templates/admin/artists/style_add.html -->
+
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "layout.html" %}
+{% block title %}Assign Styles{% endblock %}
+{% block body %}
+<div class="content-section">
+ <div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <div class="center">
+            <h1> Assign Styles </h1>
+            <br/>
+            <p>
+                Select a style to assign to
+                <span style="color: #0bafef;">
+                    {{ artist.artistName }}
+                </span>
+            </p>
+            <br/>
+            {{ wtf.quick_form(form) }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+<!-- app/templates/artwork/group_add.html -->
+
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "layout.html" %}
+{% block title %}Assign Groups{% endblock %}
+{% block body %}
+<div class="content-section">
+ <div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <div class="center">
+            <h1> Assign Groups </h1>
+            <br/>
+            <p>
+                Select a group to assign to
+                <span style="color: #0bafef;">
+                    {{ artwork.title }}
+                </span>
+            </p>
+            <br/>
+            {{ wtf.quick_form(form) }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

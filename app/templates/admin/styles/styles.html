@@ -1,0 +1,60 @@
+<!-- app/templates/admin/artists/artists.html -->
+
+{% import "bootstrap/utils.html" as utils %}
+{% extends "layout.html" %}
+{% block title %}Styles{% endblock %}
+{% block body %}
+<div class="content-section">
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <br/>
+        {{ utils.flashed_messages() }}
+        <br/>
+        <h1 style="text-align:center;">Styles</h1>
+        {% if styles %}
+          <hr class="intro-divider">
+          <div class="center">
+            <table class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th width="70%"> Title </th>
+                  <th width="15%"> Edit </th>
+                  <th width="15%"> Delete </th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for style in styles %}
+                <tr>
+                  <td> {{ style.styleName }} </td>
+                  <td>
+                    <a href="{{ url_for('admin.edit_styles', styleName=style.styleName) }}" class="btn btn-default btn-sm">
+                      <i class="fa fa-pencil"></i> Edit
+                    </a>
+                  </td>
+                  <td>
+                    <a href="{{ url_for('admin.delete_styles', styleName=style.styleName) }}" class="btn btn-default btn-sm">
+                      <i class="fa fa-trash"></i> Delete
+                    </a>
+                  </td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div style="text-align: center">
+        {% else %}
+          <div style="text-align: center">
+            <h3> No styles have been added. </h3>
+            <hr class="intro-divider">
+        {% endif %}
+          <a href="{{ url_for('admin.add_styles') }}" class="btn btn-default btn-lg">
+            <i class="fa fa-plus"></i>
+            Add Styles
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+<!-- app/templates/home/home.html -->
+
+{% extends "layout.html" %}
+{% block title %}Home{% endblock %}
+{% block body %}
+<section>
+    <div class="welcome-message">
+        <h1> Welcome </h1>
+        <hr class="intro-divider">
+        <h5> "The principle of true art is not to portray, but to evoke."<br>
+            - Jerzy Kosinski</h5>
+    </div>
+    <aside  class='features'>
+        <figure>
+            <img src="{{ url_for('static', filename='img/artist.jpg') }}" alt="Navigate to Artists">
+            <figcaption><a href="{{ url_for('home.featured_artists') }}">Featured Artists</a></figcaption>
+        </figure>
+        <figure>
+            <img src="{{ url_for('static', filename='img/artwork.jpg') }}" alt="Navigate to Artwork">
+            <figcaption><a href="{{ url_for('home.featured_artwork') }}">Featured Artwork</a></figcaption>
+        </figure>
+    <aside>
+</section>
+{% endblock %}
